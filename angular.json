@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "ngx-ol-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ngx-ol-demo",
+      "sourceRoot": "apps/ngx-ol-demo/src",
+      "prefix": "myworkspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ngx-ol-demo",
+            "index": "apps/ngx-ol-demo/src/index.html",
+            "main": "apps/ngx-ol-demo/src/main.ts",
+            "polyfills": "apps/ngx-ol-demo/src/polyfills.ts",
+            "tsConfig": "apps/ngx-ol-demo/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/ngx-ol-demo/src/favicon.ico",
+              "apps/ngx-ol-demo/src/assets"
+            ],
+            "styles": ["apps/ngx-ol-demo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ngx-ol-demo/src/environments/environment.ts",
+                  "with": "apps/ngx-ol-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-ol-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-ol-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-ol-demo:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ngx-ol-demo/tsconfig.app.json",
+              "apps/ngx-ol-demo/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/ngx-ol-demo/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ngx-ol-demo/jest.config.js",
+            "tsConfig": "apps/ngx-ol-demo/tsconfig.spec.json",
+            "setupFile": "apps/ngx-ol-demo/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "ngx-ol-demo-e2e": {
+      "root": "apps/ngx-ol-demo-e2e",
+      "sourceRoot": "apps/ngx-ol-demo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ngx-ol-demo-e2e/cypress.json",
+            "tsConfig": "apps/ngx-ol-demo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ngx-ol-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-ol-demo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/ngx-ol-demo-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/ngx-ol-demo-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "ngx-ol-demo"
+}

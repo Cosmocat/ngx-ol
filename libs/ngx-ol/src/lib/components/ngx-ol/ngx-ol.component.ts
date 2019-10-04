@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import * as fromStore from '@myworkspace/ngx-ol/store';
+import * as SidebarActions from '@myworkspace/ngx-ol/store';
+import { Sidebar } from '@myworkspace/ngx-ol/store';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'ngx-ol',
@@ -7,12 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgxOlComponent implements OnInit {
 
-  constructor() { }
+  sidebar$: Observable<Sidebar>;
+
+  constructor(private store: Store<fromStore.NgxOlState>) {
+    this.sidebar$ = this.store.pipe(select(fromStore.getSidebar));
+  }
 
   config: any;
 
   ngOnInit() {
-    this.config = {};
+  }
+
+  sidebarClose() {
+    this.store.dispatch(SidebarActions.closeSidebar());
   }
 
 }

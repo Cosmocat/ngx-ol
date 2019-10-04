@@ -1,9 +1,11 @@
-<!-- <mat-drawer-container>
-  <mat-drawer #ngxOlDrawer [opened]="true">
-    test!
+<mat-drawer-container autosize>
+  <mat-drawer #ngxOlDrawer mode="over"
+    *ngIf="(sidebar$ | async).hasSidebar"
+    [opened]="(sidebar$ | async).opened"
+    (closedStart)="sidebarClose()">
   </mat-drawer>
-
-</mat-drawer-container> -->
-<!-- <div class="sidenav-content"> -->
+  <div class="sidenav-content">
+    <ngx-ol-controllers></ngx-ol-controllers>
     <ngx-ol-map [config]="config"></ngx-ol-map>
-<!-- </div> -->
+  </div>
+</mat-drawer-container>

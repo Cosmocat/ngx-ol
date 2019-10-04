@@ -7,15 +7,16 @@ import * as fromNgxOl from './+state/ngx-ol/ngx-ol.reducer';
 import { NgxOlEffects } from './+state/ngx-ol/ngx-ol.effects';
 import { NgxOlComponent } from './components/ngx-ol/ngx-ol.component';
 import { NgxOlMapComponent } from './components/ngx-ol-map/ngx-ol-map.component';
+import { NgxOlControllersComponent } from './components/ngx-ol-controllers/ngx-ol-controllers.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    StoreModule.forFeature(fromNgxOl.NGXOL_FEATURE_KEY, fromNgxOl.reducer),
+    StoreModule.forFeature(fromNgxOl.NGXOL_FEATURE_KEY, fromNgxOl.reducers),
     EffectsModule.forFeature([NgxOlEffects])
   ],
-  declarations: [NgxOlComponent, NgxOlMapComponent],
+  declarations: [NgxOlComponent, NgxOlMapComponent, NgxOlControllersComponent],
   exports: [NgxOlComponent]
 })
 export class NgxOlModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Map, View } from 'ol';
 
 import TileLayer from 'ol/layer/Tile';
@@ -29,6 +29,7 @@ export class NgxOlMapComponent implements OnInit {
         zoom: 2
       })
     });
+    console.log(this.mapInstance);
   }
 
 }

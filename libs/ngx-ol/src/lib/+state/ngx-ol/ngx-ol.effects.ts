@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions } from '@ngrx/effects';
 
-import { NgxOlPartialState } from './ngx-ol.reducer';
+// import { NgxOlPartialState } from './ngx-ol.reducer';
 import * as NgxOlActions from './ngx-ol.actions';
 
 @Injectable()

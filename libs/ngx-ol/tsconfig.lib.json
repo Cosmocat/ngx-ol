@@ -6,6 +6,10 @@
     "declaration": true,
     "inlineSources": true,
     "types": [],
+    "baseUrl": "",
+    "paths": {
+      "@store/*": ["./lib/+state/*"]
+    },
     "lib": ["dom", "es2018"]
   },
   "angularCompilerOptions": {

@@ -1,0 +1,10 @@
+@import "../../assets/scss/variables";
+:host {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.ngx-ol-map {
+    height: 100%;
+}

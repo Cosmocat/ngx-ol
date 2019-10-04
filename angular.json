@@ -10,7 +10,7 @@
       },
       "root": "apps/ngx-ol-demo",
       "sourceRoot": "apps/ngx-ol-demo/src",
-      "prefix": "myworkspace",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -121,6 +121,37 @@
             "tsConfig": ["apps/ngx-ol-demo-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/ngx-ol-demo-e2e/**"]
           }
+        }
+      }
+    },
+    "ngx-ol": {
+      "projectType": "library",
+      "root": "libs/ngx-ol",
+      "sourceRoot": "libs/ngx-ol/src",
+      "prefix": "myworkspace",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ngx-ol/tsconfig.lib.json",
+              "libs/ngx-ol/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ngx-ol/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ngx-ol/jest.config.js",
+            "tsConfig": "libs/ngx-ol/tsconfig.spec.json",
+            "setupFile": "libs/ngx-ol/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

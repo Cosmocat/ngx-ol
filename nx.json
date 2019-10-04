@@ -13,6 +13,9 @@
     },
     "ngx-ol-demo": {
       "tags": []
+    },
+    "ngx-ol": {
+      "tags": []
     }
   }
 }

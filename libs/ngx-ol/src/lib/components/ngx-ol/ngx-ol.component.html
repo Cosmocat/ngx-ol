@@ -3,9 +3,13 @@
     *ngIf="(sidebar$ | async).hasSidebar"
     [opened]="(sidebar$ | async).opened"
     (closedStart)="sidebarClose()">
+    <h3 mat-subheader>Layers</h3>
+    <ngx-layers [layers]="layerNames$ | async" (toggleLayer)="toggleLayer($event)"></ngx-layers>
   </mat-drawer>
-  <div class="sidenav-content">
-    <ngx-ol-controllers></ngx-ol-controllers>
-    <ngx-ol-map [config]="config"></ngx-ol-map>
-  </div>
+  <mat-drawer-content>
+    <div class="sidenav-content">
+      <ngx-ol-controllers></ngx-ol-controllers>
+      <ngx-ol-map [config]="config"></ngx-ol-map>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>

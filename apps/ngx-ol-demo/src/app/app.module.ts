@@ -23,7 +23,9 @@ import { environment } from '../environments/environment';
       }
     }),
     !environment.production ? StoreDevtoolsModule.instrument({
-      maxAge: 25}) : [],
+      name: 'NGX OpenLayers',
+      maxAge: 25
+    }) : [],
     EffectsModule.forRoot([])
 
   ],

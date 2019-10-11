@@ -1,0 +1,7 @@
+<div *ngFor="let layer of layers">
+    <button mat-icon-button
+    (click)="toggleLayerVisibility(layer)">
+    <mat-icon>{{layer.layerVisibility ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </button>
+    {{ layer.id}}
+</div>

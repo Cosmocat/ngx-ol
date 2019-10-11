@@ -1,15 +1,36 @@
 <div class="elements-left">
     <button mat-mini-fab
+        class="sidebar-icon"
         color="primary"
         (click)="toggleSidebar()">
-        <mat-icon>keyboard_arrow_left</mat-icon>
+        <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
-    <!-- <mangol-zoom-buttons *ngIf="(zoom$ | async).show"></mangol-zoom-buttons>
-    <mangol-rotation-button *ngIf="(rotation$ | async).show"></mangol-rotation-button>
-    <mangol-fullscreen-button *ngIf="(fullScreen$ | async).show"></mangol-fullscreen-button> -->
+    <button mat-mini-fab
+        class="zoom-icon"
+        color="primary"
+        (click)="zoomIn()"
+        matTooltip="Zoom In"
+        matTooltipPosition="after">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-mini-fab
+        class="zoom-icon"
+        color="primary"
+        (click)="zoomOut()"
+        matTooltip="Zoom Out"
+        matTooltipPosition="after">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <button mat-mini-fab
+        class="fs-icon"
+        color="primary"
+        (click)="toggleFullScreen()"
+        matTooltip="Fullscreen"
+        matTooltipPosition="after">
+      <mat-icon>{{ isFullScreen() ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
+    </button>
 </div>
 <div class="elements-right">
     <!-- <mangol-position *ngIf="(position$ | async).show"></mangol-position> -->
     <!-- <mangol-scalebar></mangol-scalebar> -->
 </div>
-<!-- <mangol-cursor></mangol-cursor> -->

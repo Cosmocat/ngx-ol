@@ -2,7 +2,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
-    "checkJs": true,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -19,8 +18,6 @@
     "paths": {
       "@myworkspace/ngx-ol": ["libs/ngx-ol/src/index.ts"],
       "@myworkspace/ngx-ol/store": ["libs/ngx-ol/src/lib/+state/ngx-ol/index.ts"],
-      "ol": ["node_modules/ol/src"],
-      "ol/*": ["node_modules/ol/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
